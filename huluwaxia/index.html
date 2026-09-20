@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="葫芦娃下载 - 提供经典国产动画片《葫芦兄弟》高清全集资源、在线观看及手机版安装指南，包含单集下载、离线观看及安全下载提示。">
+    <meta name="keywords" content="葫芦娃下载,葫芦兄弟,国产动画,葫芦娃全集,动画片下载">
+    <title>葫芦娃下载-经典国产动画全集资源与观看指南</title>
+    <style>
+        :root {
+            --primary-green: #4CAF50;
+            --dark-green: #2E7D32;
+            --leaf-color: #81C784;
+            --bg-color: #F9F9F9;
+            --text-color: #333;
+            --text-light: #666;
+            --white: #ffffff;
+            --accent-red: #D32F2F;
+            --border-radius: 8px;
+            --shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: "PingFang SC", "Microsoft YaHei", "Helvetica Neue", Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s ease;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Layout */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background-color: var(--white);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--dark-green);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo span {
+            display: inline-block;
+            width: 30px;
+            height: 30px;
+            background-color: var(--primary-green);
+            border-radius: 50%;
+            color: white;
+            text-align: center;
+            line-height: 30px;
+            font-size: 18px;
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-menu a {
+            font-size: 16px;
+            font-weight: 500;
+            color: var(--text-color);
+        }
+
+        .nav-menu a:hover, .nav-menu a.active {
+            color: var(--primary-green);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #e8f5e9 0%, #ffffff 100%);
+            padding: 60px 0;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 36px;
+            margin-bottom: 15px;
+            color: var(--dark-green);
+        }
+
+        .hero p {
+            font-size: 18px;
+            color: var(--text-light);
+            max-width: 700px;
+            margin: 0 auto 30px;
+        }
+
+        .btn-download {
+            display: inline-block;
+            background-color: var(--primary-green);
+            color: var(--white);
+            padding: 12px 36px;
+            border-radius: 50px;
+            font-size: 18px;
+            font-weight: bold;
+            box-shadow: 0 4px 15px rgba(76, 175, 80, 0.4);
+            transition: transform 0.2s, background-color 0.2s;
+        }
+
+        .btn-download:hover {
+            background-color: var(--dark-green);
+            transform: translateY(-2px);
+        }
+
+        /* Features Grid */
+        .features {
+            padding: 40px 0;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .feature-card {
+            background: var(--white);
+            padding: 25px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            text-align: center;
+        }
+
+        .feature-icon {
+            font-size: 40px;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .feature-title {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .feature-desc {
+            font-size: 14px;
+            color: var(--text-light);
+        }
+
+        /* Main Content Area */
+        .content-wrapper {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 40px;
+            padding: 40px 0 80px;
+        }
+
+        /* Video Section */
+        .section-title {
+            font-size: 24px;
+            margin-bottom: 20px;
+            border-left: 5px solid var(--primary-green);
+            padding-left: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .video-container {
+            background: #000;
+            aspect-ratio: 16/9;
+            border-radius: var(--border-radius);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            position: relative;
+            overflow: hidden;
+            margin-bottom: 20px;
+        }
+
+        .play-btn {
+            font-size: 60px;
+            opacity: 0.8;
+            cursor: pointer;
+        }
+
+        .episode-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+            gap: 15px;
+        }
+
+        .episode-item {
+            background: var(--white);
+            border: 1px solid #eee;
+            border-radius: 6px;
+            padding: 10px;
+            text-align: center;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .episode-item:hover {
+            border-color: var(--primary-green);
+            color: var(--primary-green);
+        }
+
+        .episode-item.current {
+            background-color: var(--primary-green);
+            color: var(--white);
+            border-color: var(--primary-green);
+        }
+
+        /* Sidebar */
+        .sidebar-card {
+            background: var(--white);
+            padding: 20px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            margin-bottom: 20px;
+        }
+
+        .download-list li {
+            border-bottom: 1px solid #f0f0f0;
+            padding: 12px 0;
+        }
+
+        .download-list li:last-child {
+            border-bottom: none;
+        }
+
+        .download-info {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 5px;
+        }
+
+        .download-size {
+            font-size: 12px;
+            color: var(--text-light);
+        }
+
+        .download-btn {
+            font-size: 12px;
+            color: var(--primary-green);
+            font-weight: bold;
+        }
+
+        .download-btn:hover {
+            text-decoration: underline;
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            background-color: var(--white);
+            padding: 50px 0;
+            margin-top: 40px;
+        }
+
+        .faq-item {
+            border-bottom: 1px solid #eee;
+            padding: 20px 0;
+        }
+
+        .faq-question {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .faq-answer {
+            color: var(--text-light);
+            padding-left: 10px;
+            border-left: 3px solid var(--leaf-color);
+            font-size: 15px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #263238;
+            color: #b0bec5;
+            padding: 40px 0 20px;
+            font-size: 14px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 30px;
+        }
+
+        .footer-col h3 {
+            color: var(--white);
+            margin-bottom: 20px;
+            font-size: 18px;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--white);
+        }
+
+        .copyright {
+            text-align: center;
+            border-top: 1px solid #37474f;
+            padding-top: 20px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-inner {
+                flex-direction: column;
+                height: auto;
+                padding: 15px 0;
+            }
+            .nav-menu {
+                margin-top: 15px;
+                gap: 15px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            .content-wrapper {
+                grid-template-columns: 1fr;
+            }
+            .hero h1 {
+                font-size: 28px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="container header-inner">
+        <a href="#" class="logo"><span>葫</span> 葫芦娃下载</a>
+        <nav class="nav-menu">
+            <a href="#" class="active">首页</a>
+            <a href="#videos">全集播放</a>
+            <a href="#download">资源下载</a>
+            <a href="#faq">常见问题</a>
+        </nav>
+    </div>
+</header>
+
+<section class="hero">
+    <div class="container">
+        <h1>重温经典：葫芦娃下载与观看</h1>
+        <p>提供高清正版《葫芦兄弟》动画全集资源，支持在线流畅播放及手机版下载，重温儿时经典，守护七色神山。</p>
+        <a href="#videos" class="btn-download">立即观看全集</a>
+    </div>
+</section>
+
+<section class="container features">
+    <div class="features-grid">
+        <div class="feature-card">
+            <span class="feature-icon">🎬</span>
+            <h3 class="feature-title">高清全集</h3>
+            <p class="feature-desc">收录《葫芦兄弟》全10集高清修复版，画质清晰，音效纯正。</p>
+        </div>
+        <div class="feature-card">
+            <span class="feature-icon">📱</span>
+            <h3 class="feature-title">手机适配</h3>
+            <p class="feature-desc">完美适配安卓与iOS系统，支持离线缓存，随时随地观看。</p>
+        </div>
+        <div class="feature-card">
+            <span class="feature-icon">🛡️</span>
+            <h3 class="feature-title">安全无毒</h3>
+            <p class="feature-desc">所有下载资源经过安全扫描，无广告插件，保障设备安全。</p>
+        </div>
+    </div>
+</section>
+
+<main class="container content-wrapper">
+    <!-- 左侧主要内容区 -->
+    <div class="main-content">
+        <div id="videos" class="section-title">
+            <span>在线观看</span>
+            <span style="font-size: 14px; font-weight: normal; color: #666;">共10集</span>
+        </div>
+
+        <div class="video-container">
+            <div class="play-btn">▶</div>
+            <p style="position: absolute; bottom: 20px; left: 0; right: 0; text-align: center;">
+                点击上方按钮开始播放《葫芦兄弟》第一集
+            </p>
+        </div>
+
+        <div class="episode-list">
+            <div class="episode-item current">01. 葫芦山</div>
+            <div class="episode-item">02. 神峰炼化</div>
+            <div class="episode-item">03. 水火奇功</div>
+            <div class="episode-item">04. 智取蛇精</div>
+            <div class="episode-item">05. 灵泉取水</div>
+            <div class="episode-item">06. 宝葫芦</div>
+            <div class="episode-item">07. 巧斗蝎子</div>
+            <div class="episode-item">08. 义战蜈蚣</div>
+            <div class="episode-item">09. 深山困敌</div>
+            <div class="episode-item">10. 七子连心</div>
+        </div>
+    </div>
+
+    <!-- 右侧侧边栏 -->
+    <aside class="sidebar">
+        <div id="download" class="section-title">
+            <span>资源下载</span>
+        </div>
+
+        <div class="sidebar-card">
+            <ul class="download-list">
+                <li>
+                    <div class="download-info">
+                        <strong>标准版 (MP4)</strong>
+                        <span class="download-size">150MB</span>
+                    </div>
+                    <div class="download-info" style="justify-content: space-between;">
+                        <span style="font-size: 12px; color: #999;">适合电脑/平板</span>
+                        <a href="#" class="download-btn">立即下载</a>
+                    </div>
+                </li>
+                <li>
+                    <div class="download-info">
+                        <strong>高清版 (MKV)</strong>
+                        <span class="download-size">800MB</span>
+                    </div>
+                    <div class="download-info" style="justify-content: space-between;">
+                        <span style="font-size: 12px; color: #999;">适合电视/大屏</span>
+                        <a href="#" class="download-btn">立即下载</a>
+                    </div>
+                </li>
+                <li>
+                    <div class="download-info">
+                        <strong>手机离线包 (APK)</strong>
+                        <span class="download-size">45MB</span>
+                    </div>
+                    <div class="download-info" style="justify-content: space-between;">
+                        <span style="font-size: 12px; color: #999;">支持后台播放</span>
+                        <a href="#" class="download-btn">立即下载</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <div class="sidebar-card">
+            <h3 style="font-size: 16px; margin-bottom: 10px;">下载提示</h3>
+            <p style="font-size: 13px; color: #666; line-height: 1.5;">
+                本站提供的资源为公益分享，仅供个人学习研究使用。请勿用于商业用途或传播。
+            </p>
+        </div>
+    </aside>
+</main>
+
+<section id="faq" class="faq-section">
+    <div class="container">
+        <div class="section-title">
+            <span>常见问题 (FAQ)</span>
+        </div>
+        
+        <div class="faq-item">
+            <div class="faq-question">下载速度慢怎么办？ <span>+</span></div>
+            <div class="faq-answer">
+                如果下载速度较慢，建议检查您的网络连接，或尝试切换下载节点。部分网络环境可能对大文件下载有限制。
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">是否支持投屏到电视？ <span>+</span></div>
+            <div class="faq-answer">
+                是的，标准版和高清版资源均支持主流智能电视的投屏功能，您可以在播放页面找到投屏按钮。
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">如何获取最新一集？ <span>+</span></div>
+            <div class="faq-answer">
+                本站《葫芦兄弟》动画已完结，暂无更新内容。请关注我们的网站获取更多经典动画资源。
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <div class="container">
+        <div class="footer-content">
+            <div class="footer-col">
+                <h3>关于我们</h3>
+                <p style="line-height: 1.6;">
+                    本站致力于收集和整理经典国产动画资源，为用户提供一个安全、便捷的观看与下载平台。传承经典文化，陪伴美好童年。
+                </p>
+            </div>
+            <div class="footer-col">
+                <h3>快速链接</h3>
+                <ul>
+                    <li><a href="#">网站地图</a></li>
+                    <li><a href="#">版权声明</a></li>
+                    <li><a href="#">隐私政策</a></li>
+                    <li><a href="#">联系我们</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3>热门资源</h3>
+                <ul>
+                    <li><a href="#">黑猫警长</a></li>
+                    <li><a href="#">舒克和贝塔</a></li>
+                    <li><a href="#">大闹天宫</a></li>
+                    <li><a href="#">哪吒闹海</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2023 经典动画资源站. All Rights Reserved.</p>
+        </div>
+    </div>
+</footer>
+
+<script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+
+</body>
+</html>
