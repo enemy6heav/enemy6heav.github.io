@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="第一论坛 - 专业中文互联网综合交流社区，提供热门话题讨论、生活经验分享、技术经验交流及资源互助平台。">
+    <meta name="keywords" content="第一论坛,综合论坛,网络社区,经验分享,资源下载">
+    <title>第一论坛-中文综合交流与经验分享社区</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #2563eb;
+            --primary-hover: #1d4ed8;
+            --secondary-color: #64748b;
+            --bg-body: #f8fafc;
+            --bg-card: #ffffff;
+            --text-main: #1e293b;
+            --text-sub: #475569;
+            --border-color: #e2e8f0;
+            --spacing-sm: 8px;
+            --spacing-md: 16px;
+            --spacing-lg: 24px;
+            --radius: 8px;
+            --shadow: 0 1px 3px rgba(0,0,0,0.1), 0 1px 2px rgba(0,0,0,0.06);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+            background-color: var(--bg-body);
+            color: var(--text-main);
+            line-height: 1.6;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.2s;
+        }
+
+        a:hover {
+            color: var(--primary-color);
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Header */
+        .site-header {
+            background-color: var(--bg-card);
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+        }
+
+        .header-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-md);
+            height: 64px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-sm);
+        }
+
+        .logo span {
+            color: var(--text-main);
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: var(--spacing-lg);
+        }
+
+        .nav-menu a {
+            font-weight: 500;
+            color: var(--text-sub);
+            padding: var(--spacing-sm) 0;
+            position: relative;
+        }
+
+        .nav-menu a:hover, .nav-menu a.active {
+            color: var(--primary-color);
+        }
+
+        .nav-menu a.active::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: var(--primary-color);
+        }
+
+        .user-actions {
+            display: flex;
+            gap: var(--spacing-md);
+            align-items: center;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 8px 16px;
+            border-radius: var(--radius);
+            font-size: 0.9rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s;
+            border: 1px solid transparent;
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            border-color: var(--border-color);
+            color: var(--text-main);
+        }
+
+        .btn-outline:hover {
+            border-color: var(--primary-color);
+            color: var(--primary-color);
+        }
+
+        .btn-primary {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--primary-hover);
+        }
+
+        /* Main Layout */
+        .main-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: var(--spacing-lg) var(--spacing-md);
+            width: 100%;
+            display: grid;
+            grid-template-columns: 3fr 1fr;
+            gap: var(--spacing-lg);
+            flex: 1;
+        }
+
+        /* Section Styles */
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: var(--spacing-md);
+            padding-bottom: var(--spacing-sm);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .section-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--text-main);
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-sm);
+        }
+
+        .section-title::before {
+            content: '';
+            display: block;
+            width: 4px;
+            height: 1.2em;
+            background-color: var(--primary-color);
+            border-radius: 2px;
+        }
+
+        /* Forum List */
+        .forum-list {
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-md);
+        }
+
+        .forum-card {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius);
+            padding: var(--spacing-lg);
+            transition: transform 0.2s, box-shadow 0.2s;
+            display: flex;
+            gap: var(--spacing-lg);
+        }
+
+        .forum-card:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow);
+            border-color: #cbd5e1;
+        }
+
+        .forum-icon {
+            width: 60px;
+            height: 60px;
+            background-color: #eff6ff;
+            color: var(--primary-color);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+
+        .forum-info {
+            flex: 1;
+        }
+
+        .forum-name {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: var(--spacing-sm);
+            color: var(--text-main);
+        }
+
+        .forum-desc {
+            font-size: 0.9rem;
+            color: var(--text-sub);
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .forum-meta {
+            display: flex;
+            gap: var(--spacing-lg);
+            font-size: 0.85rem;
+            color: var(--secondary-color);
+        }
+
+        .forum-meta-item {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-lg);
+        }
+
+        .widget {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius);
+            padding: var(--spacing-lg);
+        }
+
+        .widget-title {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: var(--spacing-md);
+            color: var(--text-main);
+            border-left: 3px solid var(--primary-color);
+            padding-left: var(--spacing-sm);
+        }
+
+        .topic-list li {
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .topic-list a {
+            font-size: 0.9rem;
+            color: var(--text-sub);
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .topic-list a:hover {
+            color: var(--primary-color);
+        }
+
+        .topic-count {
+            background-color: #f1f5f9;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            color: var(--secondary-color);
+        }
+
+        /* Stats Grid */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: var(--spacing-md);
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: var(--spacing-md);
+            background-color: var(--bg-card);
+            border-radius: var(--radius);
+            border: 1px solid var(--border-color);
+        }
+
+        .stat-num {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 0.85rem;
+            color: var(--text-sub);
+        }
+
+        /* User Panel */
+        .user-panel {
+            text-align: center;
+            padding-bottom: var(--spacing-md);
+            border-bottom: 1px solid var(--border-color);
+            margin-bottom: var(--spacing-md);
+        }
+
+        .user-avatar {
+            width: 64px;
+            height: 64px;
+            border-radius: 50%;
+            margin: 0 auto var(--spacing-sm);
+            background-color: #e2e8f0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: var(--text-sub);
+        }
+
+        .user-name {
+            font-weight: 600;
+            color: var(--text-main);
+        }
+
+        .user-level {
+            font-size: 0.8rem;
+            color: var(--secondary-color);
+            margin-top: 4px;
+        }
+
+        /* Footer */
+        .site-footer {
+            background-color: var(--bg-card);
+            border-top: 1px solid var(--border-color);
+            padding: var(--spacing-lg) var(--spacing-md);
+            margin-top: auto;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: var(--spacing-lg);
+        }
+
+        .footer-col h4 {
+            font-size: 0.95rem;
+            margin-bottom: var(--spacing-md);
+            color: var(--text-main);
+        }
+
+        .footer-col ul li {
+            margin-bottom: 8px;
+        }
+
+        .footer-col ul li a {
+            font-size: 0.9rem;
+            color: var(--secondary-color);
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--primary-color);
+        }
+
+        .copyright {
+            max-width: 1200px;
+            margin: var(--spacing-lg) auto 0;
+            padding-top: var(--spacing-md);
+            border-top: 1px solid var(--border-color);
+            text-align: center;
+            font-size: 0.85rem;
+            color: var(--secondary-color);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .main-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .nav-menu {
+                display: none;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .forum-card {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .forum-icon {
+                width: 48px;
+                height: 48px;
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="site-header">
+        <div class="header-inner">
+            <a href="#" class="logo">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                    <circle cx="9" cy="7" r="4"></circle>
+                    <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                    <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                </svg>
+                <span>第一论坛</span>
+            </a>
+            
+            <nav class="nav-menu">
+                <a href="#" class="active">首页</a>
+                <a href="#">热门讨论</a>
+                <a href="#">技术交流</a>
+                <a href="#">生活资讯</a>
+                <a href="#">资源分享</a>
+            </nav>
+
+            <div class="user-actions">
+                <a href="#" class="btn btn-outline">登录</a>
+                <a href="#" class="btn btn-primary">注册</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="main-container">
+        
+        <!-- Left Column: Forum Categories -->
+        <div class="content-area">
+            
+            <!-- Stats Widget -->
+            <section class="stats-grid">
+                <div class="stat-item">
+                    <span class="stat-num">12.5万</span>
+                    <span class="stat-label">注册会员</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-num">85万</span>
+                    <span class="stat-label">主题帖数</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-num">320万</span>
+                    <span class="stat-label">回复总数</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-num">128</span>
+                    <span class="stat-label">在线人数</span>
+                </div>
+            </section>
+
+            <!-- Category 1: Hot Discussions -->
+            <section class="section">
+                <div class="section-header">
+                    <h2 class="section-title">热门讨论</h2>
+                    <a href="#" style="font-size: 0.9rem; color: var(--primary-color);">查看更多 &raquo;</a>
+                </div>
+                
+                <div class="forum-list">
+                    <article class="forum-card">
+                        <div class="forum-icon">🔥</div>
+                        <div class="forum-info">
+                            <h3 class="forum-name"><a href="#">2024年科技数码趋势与新品评测</a></h3>
+                            <p class="forum-desc">探讨最新的智能手机、笔记本电脑、智能家居设备，分享你的开箱体验与使用心得。</p>
+                            <div class="forum-meta">
+                                <span class="forum-meta-item">💻 科技数码</span>
+                                <span class="forum-meta-item">👁 12,304</span>
+                                <span class="forum-meta-item">💬 856</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="forum-card">
+                        <div class="forum-icon">🎮</div>
+                        <div class="forum-info">
+                            <h3 class="forum-name"><a href="#">游戏玩家聚集地：最新攻略与组队</a></h3>
+                            <p class="forum-desc">无论是单机大作还是多人在线竞技，这里都是你交流战术、寻找队友的最佳场所。</p>
+                            <div class="forum-meta">
+                                <span class="forum-meta-item">🎮 游戏娱乐</span>
+                                <span class="forum-meta-item">👁 9,821</span>
+                                <span class="forum-meta-item">💬 1,204</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="forum-card">
+                        <div class="forum-icon">💡</div>
+                        <div class="forum-info">
+                            <h3 class="forum-name"><a href="#">职场经验与职业发展规划</a></h3>
+                            <p class="forum-desc">分享面试技巧、工作汇报方法、职场人际关系处理以及行业内的职业发展建议。</p>
+                            <div class="forum-meta">
+                                <span class="forum-meta-item">💼 职场生活</span>
+                                <span class="forum-meta-item">👁 8,102</span>
+                                <span class="forum-meta-item">💬 654</span>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </section>
+
+            <!-- Category 2: Resources & Tools -->
+            <section class="section">
+                <div class="section-header">
+                    <h2 class="section-title">实用资源</h2>
+                    <a href="#" style="font-size: 0.9rem; color: var(--primary-color);">查看更多 &raquo;</a>
+                </div>
+                
+                <div class="forum-list">
+                    <article class="forum-card">
+                        <div class="forum-icon">📂</div>
+                        <div class="forum-info">
+                            <h3 class="forum-name"><a href="#">软件下载与安装指南</a></h3>
+                            <p class="forum-desc">提供各类常用软件的官方下载渠道、版本对比以及安装过程中的常见问题解答。</p>
+                            <div class="forum-meta">
+                                <span class="forum-meta-item">📦 资源下载</span>
+                                <span class="forum-meta-item">👁 45,021</span>
+                                <span class="forum-meta-item">💬 3,200</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="forum-card">
+                        <div class="forum-icon">📚</div>
+                        <div class="forum-info">
+                            <h3 class="forum-name"><a href="#">学习资料与在线课程</a></h3>
+                            <p class="forum-desc">整理优质的学习笔记、电子书籍、公开课资源，共同进步，终身学习。</p>
+                            <div class="forum-meta">
+                                <span class="forum-meta-item">🎓 学习教育</span>
+                                <span class="forum-meta-item">👁 15,678</span>
+                                <span class="forum-meta-item">💬 980</span>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </section>
+        </div>
+
+        <!-- Right Column: Sidebar -->
+        <aside class="sidebar">
+            
+            <!-- Login Widget -->
+            <div class="widget user-panel">
+                <div class="user-avatar">👤</div>
+                <div class="user-name">访客用户</div>
+                <div class="user-level">请登录以参与讨论</div>
+                <div style="margin-top: 16px; display: flex; gap: 8px; justify-content: center;">
+                    <a href="#" class="btn btn-outline" style="font-size: 0.8rem; padding: 6px 12px; flex: 1;">登录</a>
+                    <a href="#" class="btn btn-primary" style="font-size: 0.8rem; padding: 6px 12px; flex: 1;">注册</a>
+                </div>
+            </div>
+
+            <!-- Hot Topics Widget -->
+            <div class="widget">
+                <h3 class="widget-title">今日热帖</h3>
+                <ul class="topic-list">
+                    <li>
+                        <a href="#"><span>关于新版浏览器兼容性的讨论</span> <span class="topic-count">230</span></a>
+                    </li>
+                    <li>
+                        <a href="#"><span>周末去哪里露营比较好？求推荐</span> <span class="topic-count">189</span></a>
+                    </li>
+                    <li>
+                        <a href="#"><span>分享一个高效的代码片段管理工具</span> <span class="topic-count">156</span></a>
+                    </li>
+                    <li>
+                        <a href="#"><span>新手求助：如何快速入门摄影构图？</span> <span class="topic-count">142</span></a>
+                    </li>
+                    <li>
+                        <a href="#"><span>大家觉得现在的房价走势如何？</span> <span class="topic-count">128</span></a>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Tags Cloud Widget -->
+            <div class="widget">
+                <h3 class="widget-title">热门标签</h3>
+                <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+                    <a href="#" class="btn btn-outline" style="font-size: 0.8rem; padding: 4px 8px;">前端开发</a>
+                    <a href="#" class="btn btn-outline" style="font-size: 0.8rem; padding: 4px 8px;">UI设计</a>
+                    <a href="#" class="btn btn-outline" style="font-size: 0.8rem; padding: 4px 8px;">Python</a>
+                    <a href="#" class="btn btn-outline" style="font-size: 0.8rem; padding: 4px 8px;">职场干货</a>
+                    <a href="#" class="btn btn-outline" style="font-size: 0.8rem; padding: 4px 8px;">数码测评</a>
+                    <a href="#" class="btn btn-outline" style="font-size: 0.8rem; padding: 4px 8px;">生活分享</a>
+                    <a href="#" class="btn btn-outline" style="font-size: 0.8rem; padding: 4px 8px;">影视推荐</a>
+                </div>
+            </div>
+
+        </aside>
+
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-content">
+            <div class="footer-col" style="flex: 2; min-width: 300px;">
+                <div class="logo" style="margin-bottom: 16px;">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                        <circle cx="9" cy="7" r="4"></circle>
+                        <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                        <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                    </svg>
+                    <span>第一论坛</span>
+                </div>
+                <p style="color: var(--secondary-color); font-size: 0.9rem; max-width: 500px;">
+                    第一论坛是一个致力于为用户提供高质量交流体验的综合性网络社区。我们提供多元化的板块，涵盖科技、生活、娱乐及资源共享，旨在构建一个文明、友善、互助的网络空间。
+                </p>
+            </div>
+            <div class="footer-col" style="flex: 1; min-width: 150px;">
+                <h4>关于我们</h4>
+                <ul>
+                    <li><a href="#">论坛简介</a></li>
+                    <li><a href="#">服务条款</a></li>
+                    <li><a href="#">隐私政策</a></li>
+                    <li><a href="#">联系管理员</a></li>
+                </ul>
+            </div>
+            <div class="footer-col" style="flex: 1; min-width: 150px;">
+                <h4>快速链接</h4>
+                <ul>
+                    <li><a href="#">最新帖子</a></li>
+                    <li><a href="#">版主团队</a></li>
+                    <li><a href="#">排行榜单</a></li>
+                    <li><a href="#">帮助中心</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            &copy; 2024 第一论坛 版权所有. All Rights Reserved.
+        </div>
+    </footer>
+
+</body>
+                      </html>
