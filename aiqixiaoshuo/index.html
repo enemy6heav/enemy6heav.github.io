@@ -1,0 +1,779 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>爱妻小说-都市情感与家庭伦理阅读平台</title>
+    <meta name="description" content="爱妻小说提供海量都市情感、家庭伦理、婚恋题材的原创及精选小说，专注于描写夫妻相处之道与家庭生活细节，打造沉浸式的阅读体验。">
+    <meta name="keywords" content="爱妻小说,都市小说,家庭伦理,情感文学,夫妻故事">
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #d35400;
+            --secondary-color: #e67e22;
+            --bg-color: #fdfbf7;
+            --text-main: #2c3e50;
+            --text-light: #7f8c8d;
+            --card-bg: #ffffff;
+            --border-color: #ecf0f1;
+            --spacing-unit: 1rem;
+            --container-width: 1200px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: "PingFang SC", "Microsoft YaHei", "Helvetica Neue", Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s ease;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Header */
+        header {
+            background-color: var(--card-bg);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-inner {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 var(--spacing-unit);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 70px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo span {
+            color: var(--text-main);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 20px;
+        }
+
+        nav a {
+            font-size: 1rem;
+            color: var(--text-main);
+            font-weight: 500;
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--primary-color);
+        }
+
+        .header-actions {
+            display: flex;
+            gap: 15px;
+        }
+
+        .btn {
+            padding: 8px 20px;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: none;
+        }
+
+        .btn-primary {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--secondary-color);
+        }
+
+        .btn-outline {
+            border: 1px solid var(--border-color);
+            background: transparent;
+            color: var(--text-main);
+        }
+
+        .btn-outline:hover {
+            border-color: var(--primary-color);
+            color: var(--primary-color);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #fdfbf7 0%, #fff5eb 100%);
+            padding: 60px 0;
+            text-align: center;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            color: var(--text-main);
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            color: var(--text-light);
+            margin-bottom: 30px;
+        }
+
+        .search-box {
+            display: flex;
+            max-width: 500px;
+            margin: 0 auto;
+            border: 1px solid var(--border-color);
+            border-radius: 50px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(211, 84, 0, 0.1);
+        }
+
+        .search-box input {
+            flex: 1;
+            border: none;
+            padding: 12px 20px;
+            font-size: 1rem;
+            outline: none;
+        }
+
+        .search-box button {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 0 25px;
+            font-size: 1rem;
+            cursor: pointer;
+        }
+
+        /* Main Layout */
+        .container {
+            max-width: var(--container-width);
+            margin: 40px auto;
+            padding: 0 var(--spacing-unit);
+            display: grid;
+            grid-template-columns: 3fr 1fr;
+            gap: 40px;
+        }
+
+        /* Section Styles */
+        .section-title {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            border-left: 4px solid var(--primary-color);
+            padding-left: 15px;
+        }
+
+        .section-title h2 {
+            font-size: 1.4rem;
+            color: var(--text-main);
+        }
+
+        .section-title a {
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+
+        .section-title a:hover {
+            color: var(--primary-color);
+        }
+
+        /* Book Grid */
+        .book-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            gap: 25px;
+        }
+
+        .book-card {
+            background: var(--card-bg);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+            border: 1px solid var(--border-color);
+        }
+
+        .book-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+        }
+
+        .book-cover {
+            height: 240px;
+            background-color: #eee;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .book-cover img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .book-card:hover .book-cover img {
+            transform: scale(1.05);
+        }
+
+        .book-info {
+            padding: 15px;
+        }
+
+        .book-title {
+            font-size: 1rem;
+            font-weight: bold;
+            margin-bottom: 8px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .book-meta {
+            font-size: 0.85rem;
+            color: var(--text-light);
+            margin-bottom: 5px;
+        }
+
+        .book-tag {
+            display: inline-block;
+            font-size: 0.75rem;
+            background-color: #fff5eb;
+            color: var(--primary-color);
+            padding: 2px 6px;
+            border-radius: 4px;
+            margin-right: 5px;
+        }
+
+        .update-info {
+            font-size: 0.8rem;
+            color: #95a5a6;
+            text-align: right;
+        }
+
+        /* Sidebar */
+        aside {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .sidebar-widget {
+            background: var(--card-bg);
+            padding: 20px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+        }
+
+        .widget-title {
+            font-size: 1.1rem;
+            font-weight: bold;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .rank-list li {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            border-bottom: 1px dashed var(--border-color);
+            font-size: 0.9rem;
+        }
+
+        .rank-list li:last-child {
+            border-bottom: none;
+        }
+
+        .rank-num {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            line-height: 20px;
+            text-align: center;
+            border-radius: 50%;
+            background-color: #f0f0f0;
+            color: var(--text-light);
+            font-size: 0.8rem;
+            margin-right: 10px;
+        }
+
+        .rank-list li:nth-child(1) .rank-num { background-color: #ffeaa7; color: #d35400; }
+        .rank-list li:nth-child(2) .rank-num { background-color: #fab1a0; color: #d35400; }
+        .rank-list li:nth-child(3) .rank-num { background-color: #ff7675; color: white; }
+
+        .tag-cloud {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .tag-cloud a {
+            font-size: 0.85rem;
+            padding: 4px 10px;
+            background-color: #f8f9fa;
+            border-radius: 4px;
+            color: var(--text-main);
+        }
+
+        .tag-cloud a:hover {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        /* Features Section */
+        .features {
+            background-color: white;
+            padding: 60px 0;
+            margin-top: 40px;
+        }
+
+        .features-grid {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 var(--spacing-unit);
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            text-align: center;
+        }
+
+        .feature-item i {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .feature-item h3 {
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+        }
+
+        .feature-item p {
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+
+        /* Footer */
+        footer {
+            background-color: #2c3e50;
+            color: #bdc3c7;
+            padding: 50px 0 20px;
+            margin-top: 60px;
+        }
+
+        .footer-content {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 var(--spacing-unit);
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h4 {
+            color: white;
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+
+        .footer-col p {
+            font-size: 0.9rem;
+            line-height: 1.8;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a:hover {
+            color: white;
+        }
+
+        .copyright {
+            text-align: center;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 20px;
+            font-size: 0.85rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-inner {
+                height: auto;
+                padding: 15px;
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            nav ul {
+                gap: 15px;
+                font-size: 0.9rem;
+            }
+
+            .container {
+                grid-template-columns: 1fr;
+            }
+
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+
+            .features-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="header-inner">
+            <a href="#" class="logo">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path></svg>
+                爱妻<span>小说</span>
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="#" class="active">首页</a></li>
+                    <li><a href="#">都市情感</a></li>
+                    <li><a href="#">家庭伦理</a></li>
+                    <li><a href="#">婚恋生活</a></li>
+                    <li><a href="#">分类大全</a></li>
+                </ul>
+            </nav>
+            <div class="header-actions">
+                <button class="btn btn-outline">登录</button>
+                <button class="btn btn-primary">注册</button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="hero-content">
+                <h1>读懂爱妻，品味生活</h1>
+                <p>汇聚全网最优质的都市情感与家庭题材小说，为您呈现最真实动人的夫妻相处之道与温馨生活故事。</p>
+                <div class="search-box">
+                    <input type="text" placeholder="搜索小说标题、作者或标签...">
+                    <button>搜索</button>
+                </div>
+            </div>
+        </section>
+
+        <section class="container">
+            <!-- Main Content Area -->
+            <div class="main-content">
+                
+                <div class="section-title">
+                    <h2>热门推荐</h2>
+                    <a href="#">查看更多 &gt;</a>
+                </div>
+
+                <div class="book-grid">
+                    <!-- Book Card 1 -->
+                    <article class="book-card">
+                        <div class="book-cover">
+                            <img src="https://picsum.photos/seed/love1/300/400" alt="爱妻封面">
+                        </div>
+                        <div class="book-info">
+                            <h3 class="book-title">豪门隐婚：顾少的爱妻</h3>
+                            <div class="book-meta">
+                                <span class="book-tag">都市</span>
+                                <span class="book-tag">豪门</span>
+                            </div>
+                            <div class="update-info">更新至 456 章</div>
+                        </div>
+                    </article>
+
+                    <!-- Book Card 2 -->
+                    <article class="book-card">
+                        <div class="book-cover">
+                            <img src="https://picsum.photos/seed/love2/300/400" alt="爱妻封面">
+                        </div>
+                        <div class="book-info">
+                            <h3 class="book-title">家有贤妻：幸福生活指南</h3>
+                            <div class="book-meta">
+                                <span class="book-tag">生活</span>
+                                <span class="book-tag">温馨</span>
+                            </div>
+                            <div class="update-info">更新至 120 章</div>
+                        </div>
+                    </article>
+
+                    <!-- Book Card 3 -->
+                    <article class="book-card">
+                        <div class="book-cover">
+                            <img src="https://picsum.photos/seed/love3/300/400" alt="爱妻封面">
+                        </div>
+                        <div class="book-info">
+                            <h3 class="book-title">二婚生活：别样的烟火</h3>
+                            <div class="book-meta">
+                                <span class="book-tag">现实</span>
+                                <span class="book-tag">情感</span>
+                            </div>
+                            <div class="update-info">更新至 89 章</div>
+                        </div>
+                    </article>
+
+                    <!-- Book Card 4 -->
+                    <article class="book-card">
+                        <div class="book-cover">
+                            <img src="https://picsum.photos/seed/love4/300/400" alt="爱妻封面">
+                        </div>
+                        <div class="book-info">
+                            <h3 class="book-title">相濡以沫：三十年的婚姻</h3>
+                            <div class="book-meta">
+                                <span class="book-tag">年代</span>
+                                <span class="book-tag">治愈</span>
+                            </div>
+                            <div class="update-info">已完结</div>
+                        </div>
+                    </article>
+
+                    <!-- Book Card 5 -->
+                    <article class="book-card">
+                        <div class="book-cover">
+                            <img src="https://picsum.photos/seed/love5/300/400" alt="爱妻封面">
+                        </div>
+                        <div class="book-info">
+                            <h3 class="book-title">全职太太的逆袭日记</h3>
+                            <div class="book-meta">
+                                <span class="book-tag">职场</span>
+                                <span class="book-tag">成长</span>
+                            </div>
+                            <div class="update-info">更新至 234 章</div>
+                        </div>
+                    </article>
+
+                    <!-- Book Card 6 -->
+                    <article class="book-card">
+                        <div class="book-cover">
+                            <img src="https://picsum.photos/seed/love6/300/400" alt="爱妻封面">
+                        </div>
+                        <div class="book-info">
+                            <h3 class="book-title">暖婚蜜爱：顾先生的宠溺</h3>
+                            <div class="book-meta">
+                                <span class="book-tag">甜宠</span>
+                                <span class="book-tag">婚恋</span>
+                            </div>
+                            <div class="update-info">更新至 567 章</div>
+                        </div>
+                    </article>
+
+                    <!-- Book Card 7 -->
+                    <article class="book-card">
+                        <div class="book-cover">
+                            <img src="https://picsum.photos/seed/love7/300/400" alt="爱妻封面">
+                        </div>
+                        <div class="book-info">
+                            <h3 class="book-title">平凡夫妻的琐碎日常</h3>
+                            <div class="book-meta">
+                                <span class="book-tag">写实</span>
+                                <span class="book-tag">生活</span>
+                            </div>
+                            <div class="update-info">连载中</div>
+                        </div>
+                    </article>
+
+                    <!-- Book Card 8 -->
+                    <article class="book-card">
+                        <div class="book-cover">
+                            <img src="https://picsum.photos/seed/love8/300/400" alt="爱妻封面">
+                        </div>
+                        <div class="book-info">
+                            <h3 class="book-title">爱妻养成计划</h3>
+                            <div class="book-meta">
+                                <span class="book-tag">都市</span>
+                                <span class="book-tag">校园</span>
+                            </div>
+                            <div class="update-info">更新至 312 章</div>
+                        </div>
+                    </article>
+                </div>
+
+                <div class="section-title" style="margin-top: 40px;">
+                    <h2>最新章节</h2>
+                    <a href="#">查看更多 &gt;</a>
+                </div>
+                
+                <div style="background: white; padding: 20px; border-radius: 8px; border: 1px solid var(--border-color);">
+                    <ul class="rank-list">
+                        <li>
+                            <a href="#">豪门隐婚：顾少的爱妻 第456章 <span>12-05</span></a>
+                        </li>
+                        <li>
+                            <a href="#">家有贤妻：幸福生活指南 第120章 <span>12-05</span></a>
+                        </li>
+                        <li>
+                            <a href="#">二婚生活：别样的烟火 第89章 <span>12-04</span></a>
+                        </li>
+                        <li>
+                            <a href="#">相濡以沫：三十年的婚姻 第45章 <span>12-04</span></a>
+                        </li>
+                        <li>
+                            <a href="#">全职太太的逆袭日记 第234章 <span>12-03</span></a>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <!-- Sidebar -->
+            <aside>
+                <div class="sidebar-widget">
+                    <h4 class="widget-title">分类导航</h4>
+                    <div class="tag-cloud">
+                        <a href="#">都市情感</a>
+                        <a href="#">家庭伦理</a>
+                        <a href="#">婚恋生活</a>
+                        <a href="#">豪门恩怨</a>
+                        <a href="#">重生逆袭</a>
+                        <a href="#">甜宠文</a>
+                        <a href="#">现实主义</a>
+                        <a href="#">年代文</a>
+                    </div>
+                </div>
+
+                <div class="sidebar-widget">
+                    <h4 class="widget-title">热门排行榜</h4>
+                    <ul class="rank-list">
+                        <li>
+                            <a href="#">豪门隐婚：顾少的爱妻</a>
+                            <span class="rank-num">1</span>
+                        </li>
+                        <li>
+                            <a href="#">暖婚蜜爱：顾先生的宠溺</a>
+                            <span class="rank-num">2</span>
+                        </li>
+                        <li>
+                            <a href="#">全职太太的逆袭日记</a>
+                            <span class="rank-num">3</span>
+                        </li>
+                        <li>
+                            <a href="#">家有贤妻：幸福生活指南</a>
+                            <span class="rank-num">4</span>
+                        </li>
+                        <li>
+                            <a href="#">二婚生活：别样的烟火</a>
+                            <span class="rank-num">5</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="sidebar-widget">
+                    <h4 class="widget-title">阅读指南</h4>
+                    <ul class="rank-list">
+                        <li><a href="#">如何加入书架？</a></li>
+                        <li><a href="#">如何下载小说？</a></li>
+                        <li><a href="#">防沉迷系统说明</a></li>
+                        <li><a href="#">版权声明</a></li>
+                    </ul>
+                </div>
+            </aside>
+        </section>
+
+        <section class="features">
+            <div class="features-grid">
+                <div class="feature-item">
+                    <i>❤</i>
+                    <h3>海量题材</h3>
+                    <p>涵盖都市、豪门、家庭、年代等丰富题材，满足不同读者的阅读偏好。</p>
+                </div>
+                <div class="feature-item">
+                    <i>⚡</i>
+                    <h3>极速更新</h3>
+                    <p>第一时间更新最新章节，不错过任何精彩情节，阅读体验流畅。</p>
+                </div>
+                <div class="feature-item">
+                    <i>🛡</i>
+                    <h3>安全纯净</h3>
+                    <p>无广告弹窗干扰，绿色无毒，提供舒适的沉浸式阅读环境。</p>
+                </div>
+                <div class="feature-item">
+                    <i>📱</i>
+                    <h3>多端同步</h3>
+                    <p>支持手机、平板、电脑多端阅读，随时随地享受阅读乐趣。</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-col">
+                <h4>关于爱妻小说</h4>
+                <p>爱妻小说致力于为读者提供最优质的都市情感与家庭题材小说阅读体验。我们关注夫妻相处之道，记录平凡生活中的闪光时刻，用文字温暖每一个读者的心灵。</p>
+            </div>
+            <div class="footer-col">
+                <h4>快速链接</h4>
+                <ul>
+                    <li><a href="#">网站首页</a></li>
+                    <li><a href="#">排行榜</a></li>
+                    <li><a href="#">分类大全</a></li>
+                    <li><a href="#">作家专区</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>帮助中心</h4>
+                <ul>
+                    <li><a href="#">常见问题</a></li>
+                    <li><a href="#">联系客服</a></li>
+                    <li><a href="#">意见反馈</a></li>
+                    <li><a href="#">加入我们</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>关注我们</h4>
+                <p>扫描二维码关注微信公众号<br>获取最新小说推荐</p>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2023 爱妻小说 版权所有 | 仅供学习交流使用，请支持正版</p>
+        </div>
+    </footer>
+
+</body>
+                  </html>
